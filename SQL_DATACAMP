@@ -1,0 +1,21 @@
+Write SQL code that returns a result set with just one column listing the unique authors in the books table.
+
+SELECT DISTINCT author FROM books;
+
+Update the code to return the unique author and genre combinations in the books table.
+
+SELECT DISTINCT author, genre FROM books;
+
+Add an alias to the SQL query to rename the author column to unique_author in the result set.
+
+SELECT DISTINCT author AS unique_author FROM books;
+
+Add a single line of code that saves the results of the written query as a view called library_authors.
+
+CREATE VIEW library_authors AS
+SELECT DISTINCT author AS unique_author
+FROM books;
+
+Check that the view was created by selecting all columns from library_authors.
+
+SELECT * FROM library_authors;
