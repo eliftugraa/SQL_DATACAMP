@@ -1,87 +1,83 @@
-Write SQL code that returns a result set with just one column listing the unique authors in the books table.
+1)Write SQL code that returns a result set with just one column listing the unique authors in the books table.
 
 SELECT DISTINCT author FROM books;
 
-Update the code to return the unique author and genre combinations in the books table.
+1-B)Update the code to return the unique author and genre combinations in the books table.
 
 SELECT DISTINCT author, genre FROM books;
 
-Add an alias to the SQL query to rename the author column to unique_author in the result set.
+1-C)Add an alias to the SQL query to rename the author column to unique_author in the result set.
 
 SELECT DISTINCT author AS unique_author FROM books;
 
-Add a single line of code that saves the results of the written query as a view called library_authors.
+2)Add a single line of code that saves the results of the written query as a view called library_authors.
 
 CREATE VIEW library_authors AS
 SELECT DISTINCT author AS unique_author
 FROM books;
 
-Check that the view was created by selecting all columns from library_authors.
+2-B)Check that the view was created by selecting all columns from library_authors.
 
 SELECT * FROM library_authors;
 
-Count the number of records in the people table, aliasing the result as count_records. 
+3)Count the number of records in the people table, aliasing the result as count_records. 
 
 SELECT COUNT(*) AS count_records 
 FROM people;
 
-Count the number of records with a birthdate in the people table, aliasing the result as count_birthdate. 
+4)Count the number of records with a birthdate in the people table, aliasing the result as count_birthdate. 
 
 SELECT COUNT(birthdate) AS count_birthdate 
 FROM people;
 
-Count the languages and countries in the films table; alias as count_languages and count_countries. 
+5)Count the languages and countries in the films table; alias as count_languages and count_countries. 
 
 SELECT COUNT(languages) AS count_languages, COUNT(countries) AS count_countries 
 FROM films;
 
-Return the unique countries represented in the films table using DISTINCT. 
+6)Return the unique countries represented in the films table using DISTINCT. 
 
-SELECT DISTINCT(ccountries) 
+SELECT DISTINCT(countries) 
 FROM films;
 
-Return the number of unique countries represented in the films table, aliased as count_distinct_countries. 
 
-SELECT DISTINCT(country) 
-FROM films;
-
-Return the number of unique countries represented in the films table, aliased as count_distinct_countries. 
+6-A)Return the number of unique countries represented in the films table, aliased as count_distinct_countries. 
 
 SELECT DISTINCT(country) AS count_distinct_countries 
 FROM films;
 
-Select the film_id and imdb_score from the reviews table and filter on scores higher than 7.0. 
+7)Select the film_id and imdb_score from the reviews table and filter on scores higher than 7.0. 
 
 SELECT film_id, imdb_score FROM reviews 
 WHERE imdb_score > 7.0;
 
-Select film_ids and facebook_likes for ten records with less than 1000 likes 
+8)Select film_ids and facebook_likes for ten records with less than 1000 likes 
 
 SELECT film_id , facebook_likes 
 FROM reviews 
 WHERE facebook_likes < 1000 
 LIMIT 10; 
 
-Count how many records have a num_votes of at least 100,000; use the alias films_over_100K_votes. 
+9)Count how many records have a num_votes of at least 100,000; use the alias films_over_100K_votes. 
 
 SELECT COUNT(*) AS films_over_100K_votes 
 FROM reviews 
 WHERE num_votes >= 100000; 
 
-Select and count the language field using the alias count_spanish. Apply a filter to select only Spanish from the language field.
+10)Select and count the language field using the alias count_spanish. Apply a filter to select only Spanish from the language field.
  
 SELECT COUNT(language) AS count_spanish 
 FROM films 
 WHERE language = 'Spanish'; 
 
-Select the title and release_year for all German-language films released before 2000. 
+11)Select the title and release_year for all German-language films released before 2000. 
 
 SELECT title, release_year 
 FROM films 
 WHERE release_year < 2000 
 AND language = 'German'; 
 
-Update the query from the previous step to show German-language films released after 2000 rather than before. 
+11-B)Update the query from the previous step to show German-language films released after 2000 rather than before. 
 
 SELECT title, release_year 
 FROM films 
